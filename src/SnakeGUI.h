@@ -24,20 +24,11 @@ public:
     SnakeGUI(int windowWidth, int windowHeight, int cellWidth, int cellHeight);
 
     bool openWindow();
-
+    
     void clear();
-
     void drawGrid();
-
     void drawCell(Color c, int gx, int gy);
-
     void update();
-
-    // void drawApple();
-
-    // void drawSnakePart();
-
-    bool closeWindow();
 
     Action getInput();
 };
