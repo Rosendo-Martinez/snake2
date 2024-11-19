@@ -31,6 +31,7 @@ Action SnakeGUI::getInput()
 
     if (!m_window.pollEvent(event))
     {
+        // empty event queue
         return Action::None;
     }
 
@@ -57,6 +58,9 @@ Action SnakeGUI::getInput()
             return Action::Down;
         }
     }
+
+    // unsupported event
+    return Action::None;
 }
 
 /**
