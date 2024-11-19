@@ -18,6 +18,10 @@ int main()
                 isRunning = false;
                 break;
             }
+            else if (input == Action::Right)
+            {
+                logic.move(Direction::Right);
+            }
 
             input = gui.getInput();
         }

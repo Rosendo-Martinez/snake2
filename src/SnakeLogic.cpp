@@ -19,9 +19,9 @@ SnakeLogic::SnakeLogic()
 void SnakeLogic::move(Direction d)
 {
     // shift snake back
-    for (int i = 0; i < size; i++)
+    for (int i = size - 1; i > 0; i--)
     {
-        snake[size - i - 1] = snake[size - i];
+        snake[i] = snake[i - 1];
     }
 
     // Update position of head

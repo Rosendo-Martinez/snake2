@@ -2,7 +2,7 @@
 
 enum class Action
 {
-    Close_Window, None
+    Close_Window, None, Up, Down, Left, Right
 };
 
 enum class Color
