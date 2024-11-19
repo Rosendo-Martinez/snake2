@@ -8,11 +8,25 @@ enum class Action
 class SnakeGUI
 {
     sf::RenderWindow m_window;
+    const int windowWidth = 800;
+    const int windowHeight = 800;
+    const int cellWidth = 40;
+    const int cellHeight = 40;
 public:
 
     SnakeGUI();
 
     bool openWindow();
+
+    void clear();
+
+    void drawGrid();
+
+    void update();
+
+    // void drawApple();
+
+    // void drawSnakePart();
 
     bool closeWindow();
 

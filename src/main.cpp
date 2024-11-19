@@ -19,6 +19,10 @@ int main()
 
             input = gui.getInput();
         }
+
+        gui.clear();
+        gui.drawGrid();
+        gui.update();
     }
 
     return 0;
