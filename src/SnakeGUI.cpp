@@ -29,14 +29,22 @@ Action SnakeGUI::getInput()
 {
     sf::Event event;
 
-    m_window.pollEvent(event);
+    if (!m_window.pollEvent(event))
+    {
+        return Action::None;
+    }
 
     if (event.type == sf::Event::Closed)
     {
         return Action::Close_Window;
     }
-
-    return Action::None;
+    else if (event.type == sf::Event::KeyPressed)
+    {
+        if (event.key.code == sf::Keyboard::Right)
+        {
+            return Action::Right;
+        }
+    }
 }
 
 /**
