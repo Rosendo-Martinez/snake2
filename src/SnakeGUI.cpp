@@ -2,6 +2,9 @@
 
 SnakeGUI::SnakeGUI() {}
 
+/**
+ * Creates and initializes window.
+ */
 bool SnakeGUI::openWindow()
 {
     m_window.create(sf::VideoMode(windowWidth, windowHeight), "Snake");
