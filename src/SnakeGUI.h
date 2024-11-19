@@ -16,5 +16,5 @@ public:
 
     bool closeWindow();
 
-    Action getInput() {};
+    Action getInput();
 };
