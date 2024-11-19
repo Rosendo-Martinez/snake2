@@ -5,6 +5,11 @@ enum class Action
     Close_Window, None
 };
 
+enum class Color
+{
+    Red, Green
+};
+
 class SnakeGUI
 {
     sf::RenderWindow m_window;
@@ -21,6 +26,8 @@ public:
     void clear();
 
     void drawGrid();
+
+    void drawCell(Color c, int gx, int gy);
 
     void update();
 

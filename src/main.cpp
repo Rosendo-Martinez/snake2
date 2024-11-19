@@ -22,6 +22,8 @@ int main()
 
         gui.clear();
         gui.drawGrid();
+        gui.drawCell(Color::Red, 0,0);
+        gui.drawCell(Color::Red, 10,10);
         gui.update();
     }
 

@@ -77,6 +77,30 @@ void SnakeGUI::drawGrid()
 }
 
 /**
+ * Draws a cell of the grid a certain color.
+ * 
+ * Top left cell is origin at (0,0).
+ */
+void SnakeGUI::drawCell(Color c, int gx, int gy)
+{
+    sf::Color sfColor;
+    if (c == Color::Red)
+    {
+        sfColor = sf::Color::Red;
+    }
+    else if (c == Color::Green)
+    {
+        sfColor = sf::Color::Green;
+    }
+
+    sf::RectangleShape square(sf::Vector2f(cellWidth, cellHeight));
+    square.setPosition(sf::Vector2f(gx * cellWidth, gy * cellHeight));
+    square.setFillColor(sfColor);
+
+    m_window.draw(square);
+}
+
+/**
  * Updates the window to display new frame.
  */
 void SnakeGUI::update()
