@@ -44,6 +44,18 @@ Action SnakeGUI::getInput()
         {
             return Action::Right;
         }
+        else if (event.key.code == sf::Keyboard::Left)
+        {
+            return Action::Left;
+        }
+        else if (event.key.code == sf::Keyboard::Up)
+        {
+            return Action::Up;
+        }
+        else if (event.key.code == sf::Keyboard::Down)
+        {
+            return Action::Down;
+        }
     }
 }
 

@@ -22,6 +22,18 @@ int main()
             {
                 logic.move(Direction::Right);
             }
+            else if (input == Action::Left)
+            {
+                logic.move(Direction::Left);
+            }
+            else if (input == Action::Up)
+            {
+                logic.move(Direction::Up);
+            }
+            else if (input == Action::Down)
+            {
+                logic.move(Direction::Down);
+            }
 
             input = gui.getInput();
         }
