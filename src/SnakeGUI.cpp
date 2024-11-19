@@ -88,11 +88,10 @@ void SnakeGUI::drawCell(Color c, int gx, int gy)
         sfColor = sf::Color::Green;
     }
 
-    sf::RectangleShape square(sf::Vector2f(cellWidth, cellHeight));
-    square.setPosition(sf::Vector2f(gx * cellWidth, gy * cellHeight));
-    square.setFillColor(sfColor);
-
-    m_window.draw(square);
+    sf::RectangleShape cell(sf::Vector2f(cellWidth, cellHeight));
+    cell.setPosition(sf::Vector2f(gx * cellWidth, gy * cellHeight));
+    cell.setFillColor(sfColor);
+    m_window.draw(cell);
 }
 
 /**
