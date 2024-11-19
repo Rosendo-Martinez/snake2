@@ -17,6 +17,8 @@ class SnakeLogic
     const int MAX_SNAKE_SIZE = 100;
     SnakePart snake[100];
     int size = 2;
+    // direction snake is moving
+    Direction d;
 
 public:
 
