@@ -1,8 +1,10 @@
 #include "SnakeGUI.h"
+#include "SnakeLogic.h"
 
 int main() 
 {
     SnakeGUI gui;
+    SnakeLogic logic;
     gui.openWindow();
     bool isRunning = true;
 
@@ -22,8 +24,12 @@ int main()
 
         gui.clear();
         gui.drawGrid();
-        gui.drawCell(Color::Red, 0,0);
-        gui.drawCell(Color::Red, 10,10);
+        
+        for (int i = 0; i < logic.getSize(); i++)
+        {
+            gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
+        }
+
         gui.update();
     }
 
