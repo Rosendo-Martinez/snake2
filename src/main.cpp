@@ -46,6 +46,11 @@ int main()
             gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
         }
 
+        for (int i = 0; i < logic.getSizeApples(); i++)
+        {
+            gui.drawCell(Color::Green, logic.getApples()[i].gx, logic.getApples()[i].gy);
+        }
+
         gui.update();
     }
 

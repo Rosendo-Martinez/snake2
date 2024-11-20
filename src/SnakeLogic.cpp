@@ -10,6 +10,16 @@ SnakePart::SnakePart(int gx, int gy)
 {
 }
 
+Apple::Apple()
+    : Apple(0,0)
+{
+}
+
+Apple::Apple(int gx, int gy)
+    : gx(gx), gy(gy)
+{
+}
+
 SnakeLogic::SnakeLogic()
 {
     snake[0] = SnakePart(1,0);
@@ -63,6 +73,8 @@ void SnakeLogic::move(Direction d)
     }
 
     this->d = d;
+    movesCount++;
+    generateApple();
 }
 
 const SnakePart * SnakeLogic::getSnake()
@@ -73,4 +85,53 @@ const SnakePart * SnakeLogic::getSnake()
 const int SnakeLogic::getSize()
 {
     return size;
+}
+
+const Apple * SnakeLogic::getApples()
+{
+    return apples;
+}
+
+const int SnakeLogic::getSizeApples()
+{
+    return appleSize;
+}
+
+/**
+ * Checks if apple can be generated, if so the apple is generated.
+ */
+void SnakeLogic::generateApple()
+{
+    // max amount of apples, or apple can't be generated yet
+    if 
+    (
+        (appleSize == MAX_APPLE_SIZE) ||
+        (movesCount % appleGenerationRate != 0)
+    )
+    {
+        return;
+    }
+
+    // Temporary implementation!
+
+    if (appleSize == 0)
+    {
+        apples[0] = Apple(10,10);
+        appleSize++;
+        return;
+    }
+
+    if (appleSize == 1)
+    {
+        apples[1] = Apple(15,15);
+        appleSize++;
+        return;
+    }
+
+    if (appleSize == 2)
+    {
+        apples[2] = Apple(1,1);
+        appleSize++;
+        return;
+    }
 }
