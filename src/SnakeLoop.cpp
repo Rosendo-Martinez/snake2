@@ -68,6 +68,8 @@ void SnakeLoop::doGameLogic()
     if (logic.isDead())
     {
         logic.restart();
+        dir = Direction::Right;
+        currentFrame = 1;
     }
 }
 
