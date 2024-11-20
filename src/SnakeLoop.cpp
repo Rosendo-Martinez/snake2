@@ -10,33 +10,7 @@ void SnakeLoop::run()
 
     while (isRunning) 
     {
-        Action input = gui.getInput();
-        while (input != Action::None)
-        {
-            if (input == Action::Close_Window)
-            {
-                isRunning = false;
-                break;
-            }
-            else if (input == Action::Right)
-            {
-                dir = Direction::Right;
-            }
-            else if (input == Action::Left)
-            {
-                dir = Direction::Left;
-            }
-            else if (input == Action::Up)
-            {
-                dir = Direction::Up;
-            }
-            else if (input == Action::Down)
-            {
-                dir = Direction::Down;
-            }
-
-            input = gui.getInput();
-        }
+        doUserInput();
 
         if (currentFrame % moveRate == 0)
         {
@@ -65,4 +39,35 @@ void SnakeLoop::run()
 
         currentFrame++;
     }
+}
+
+void SnakeLoop::doUserInput()
+{
+    Action input = gui.getInput();
+    while (input != Action::None)
+    {
+        if (input == Action::Close_Window)
+        {
+            isRunning = false;
+            break;
+        }
+        else if (input == Action::Right)
+        {
+            dir = Direction::Right;
+        }
+        else if (input == Action::Left)
+        {
+            dir = Direction::Left;
+        }
+        else if (input == Action::Up)
+        {
+            dir = Direction::Up;
+        }
+        else if (input == Action::Down)
+        {
+            dir = Direction::Down;
+        }
+
+        input = gui.getInput();
+    }   
 }

@@ -10,6 +10,8 @@ class SnakeLoop
     int currentFrame = 1;
     const int moveRate = 9;
 
+    void doUserInput();
+
 public:
 
     SnakeLoop();
