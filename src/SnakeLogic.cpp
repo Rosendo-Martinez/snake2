@@ -161,12 +161,12 @@ void SnakeLogic::eatApple()
 /**
  * Checks if snake is dead.
  * 
+ * Snake is dead if it went out of bounds, or if head is on top of another snake part.
+ * 
  * Note, should be called after every call to move().
  */
 bool SnakeLogic::isDead()
 {
-    // For now, only check if snake hit itself.
-
     // Check if snake ate itself
     for (int i = 1; i < size; i++)
     {
@@ -174,6 +174,16 @@ bool SnakeLogic::isDead()
         {
             return true;
         }
+    }
+
+    // Check if snake went out of bounds
+    if 
+    (
+        (snake[0].gx < 0 || snake[0].gx >= GRID_COLUMNS) || // zero-index columns & rows
+        (snake[0].gy < 0 || snake[0].gy >= GRID_ROWS)
+    )
+    {
+        return true;
     }
 
     // Snake is alive
