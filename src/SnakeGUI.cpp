@@ -69,10 +69,12 @@ Action SnakeGUI::getInput()
         if (size.x > GRID_WIDTH)
         {
             newGameViewPort.width = (float) GRID_WIDTH/size.x;
+            newGameViewPort.left = (1 - newGameViewPort.width)/2;
         }
         if (size.y > GRID_HEIGHT)
         {
             newGameViewPort.height = (float) GRID_HEIGHT/size.y;
+            newGameViewPort.top = (1 - newGameViewPort.height)/2;
         }
 
         m_gameView.setViewport(newGameViewPort);
