@@ -11,16 +11,7 @@ void SnakeLoop::run()
     while (isRunning) 
     {
         doUserInput();
-
-        if (currentFrame % moveRate == 0)
-        {
-            logic.move(dir);
-        }
-
-        if (logic.isDead())
-        {
-            return;
-        }
+        doGameLogic();
 
         gui.clear();
         gui.drawGrid();
@@ -70,4 +61,17 @@ void SnakeLoop::doUserInput()
 
         input = gui.getInput();
     }   
+}
+
+void SnakeLoop::doGameLogic()
+{
+    if (currentFrame % moveRate == 0)
+    {
+        logic.move(dir);
+    }
+
+    if (logic.isDead())
+    {
+        isRunning = false;
+    }
 }

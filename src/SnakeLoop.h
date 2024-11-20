@@ -11,6 +11,7 @@ class SnakeLoop
     const int moveRate = 9;
 
     void doUserInput();
+    void doGameLogic();
 
 public:
 
