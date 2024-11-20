@@ -45,6 +45,7 @@ public:
 
     void move(Direction d);
     bool isDead();
+    void restart();
 
     const SnakePart * getSnake();
     const int getSize();

@@ -189,3 +189,17 @@ bool SnakeLogic::isDead()
     // Snake is alive
     return false;
 }
+
+/**
+ * Restarts the game. Should use after snake dies.
+ */
+void SnakeLogic::restart()
+{
+    snake[0] = SnakePart(1,0);
+    snake[1] = SnakePart(0,0);
+    size = 2;
+    d = Direction::Right;
+    appleSize = 0;
+    movesCount = 0;
+    ateAppleLastMove = false;
+}

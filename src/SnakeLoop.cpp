@@ -67,7 +67,7 @@ void SnakeLoop::doGameLogic()
 
     if (logic.isDead())
     {
-        isRunning = false;
+        logic.restart();
     }
 }
 
