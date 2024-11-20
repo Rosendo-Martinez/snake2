@@ -4,6 +4,9 @@ SnakeLoop::SnakeLoop()
 {
 }
 
+/**
+ * The main game loop.
+ */
 void SnakeLoop::run()
 {
     gui.openWindow();
@@ -18,6 +21,9 @@ void SnakeLoop::run()
     }
 }
 
+/**
+ * Handles user input.
+ */
 void SnakeLoop::doUserInput()
 {
     Action input = gui.getInput();
@@ -49,6 +55,9 @@ void SnakeLoop::doUserInput()
     }   
 }
 
+/**
+ * Does game logic.
+ */
 void SnakeLoop::doGameLogic()
 {
     if (currentFrame % moveRate == 0)
@@ -62,6 +71,9 @@ void SnakeLoop::doGameLogic()
     }
 }
 
+/**
+ * Does rendering to window.
+ */
 void SnakeLoop::doRender()
 {
     gui.clear();
