@@ -34,6 +34,7 @@ class SnakeLogic
     int appleGenerationRate = 15; // 1 apple ever 5 moves by snake
 
     void generateApple();
+    void eatApple();
 
 public:
 

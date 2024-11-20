@@ -74,6 +74,7 @@ void SnakeLogic::move(Direction d)
 
     this->d = d;
     movesCount++;
+    eatApple();
     generateApple();
 }
 
@@ -133,5 +134,28 @@ void SnakeLogic::generateApple()
         apples[2] = Apple(1,1);
         appleSize++;
         return;
+    }
+}
+
+/**
+ * Checks if snake head is on apple, if so it eats it.
+ */
+void SnakeLogic::eatApple()
+{
+    // Snake at max size
+    if (size == MAX_SNAKE_SIZE)
+    {
+        return;
+    }
+
+    // Snake grows but apple is not deleted, for now.
+    
+    for (int i = 0; i < appleSize; i++)
+    {
+        if (snake[0].gx == apples[i].gx && snake[0].gy == apples[i].gy)
+        {
+
+            size++;
+        }
     }
 }
