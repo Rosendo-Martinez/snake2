@@ -7,6 +7,10 @@ int main()
     SnakeLogic logic;
     gui.openWindow();
     bool isRunning = true;
+    Direction dir = Direction::Right;
+
+    int currentFrame = 1;
+    const int moveRate = 9;
 
     while (isRunning) 
     {
@@ -20,22 +24,27 @@ int main()
             }
             else if (input == Action::Right)
             {
-                logic.move(Direction::Right);
+                dir = Direction::Right;
             }
             else if (input == Action::Left)
             {
-                logic.move(Direction::Left);
+                dir = Direction::Left;
             }
             else if (input == Action::Up)
             {
-                logic.move(Direction::Up);
+                dir = Direction::Up;
             }
             else if (input == Action::Down)
             {
-                logic.move(Direction::Down);
+                dir = Direction::Down;
             }
 
             input = gui.getInput();
+        }
+
+        if (currentFrame % moveRate == 0)
+        {
+            logic.move(dir);
         }
 
         if (logic.isDead())
@@ -57,6 +66,8 @@ int main()
         }
 
         gui.update();
+
+        currentFrame++;
     }
 
     return 0;
