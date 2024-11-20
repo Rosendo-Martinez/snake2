@@ -64,14 +64,18 @@ Action SnakeGUI::getInput()
     if (event.type == sf::Event::Resized)
     {
         sf::Vector2u size = m_window.getSize();
+        sf::FloatRect newGameViewPort(0,0,1,1);
 
         if (size.x > GRID_WIDTH)
         {
-            m_gameView.setViewport(sf::FloatRect(0,0, (float) GRID_WIDTH/size.x, 1));
+            newGameViewPort.width = (float) GRID_WIDTH/size.x;
         }
-        else {
-            m_gameView.setViewport(sf::FloatRect(0,0,1,1));
+        if (size.y > GRID_HEIGHT)
+        {
+            newGameViewPort.height = (float) GRID_HEIGHT/size.y;
         }
+
+        m_gameView.setViewport(newGameViewPort);
         m_window.setView(m_gameView);
     }
 
