@@ -1,5 +1,5 @@
 #define MAX_SNAKE_SIZE 100
-#define MAX_APPLE_SIZE 3
+#define MAX_APPLES 3
 
 struct SnakePart
 {
@@ -28,7 +28,7 @@ class SnakeLogic
     int size = 2;
     // direction snake is moving
     Direction d;
-    Apple apples[MAX_APPLE_SIZE];
+    Apple apples[MAX_APPLES];
     int appleSize = 0;
     int movesCount = 0;
     int appleGenerationRate = 15; // 1 apple ever 5 moves by snake

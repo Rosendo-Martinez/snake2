@@ -117,7 +117,7 @@ void SnakeLogic::generateApple()
     // max amount of apples, or apple can't be generated yet
     if 
     (
-        (appleSize == MAX_APPLE_SIZE) ||
+        (appleSize == MAX_APPLES) ||
         (movesCount % appleGenerationRate != 0)
     )
     {
