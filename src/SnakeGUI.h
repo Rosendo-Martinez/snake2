@@ -1,5 +1,10 @@
 #include <SFML/Graphics.hpp>
 
+#define GRID_WIDTH  800
+#define GRID_HEIGHT 800
+#define CELL_WIDTH  40
+#define CELL_HEIGHT 40
+
 enum class Action
 {
     Close_Window, None, Up, Down, Left, Right
@@ -13,15 +18,9 @@ enum class Color
 class SnakeGUI
 {
     sf::RenderWindow m_window;
-    const int m_windowWidth = 800;
-    const int m_windowHeight = 800;
-    const int m_cellWidth = 40;
-    const int m_cellHeight = 40;
 public:
 
     SnakeGUI();
-
-    SnakeGUI(int windowWidth, int windowHeight, int cellWidth, int cellHeight);
 
     bool openWindow();
     
