@@ -1,5 +1,7 @@
 #define MAX_SNAKE_SIZE 100
 #define MAX_APPLES 3
+#define GRID_ROWS 20
+#define GRID_COLUMNS 20
 
 struct SnakePart
 {
@@ -33,8 +35,6 @@ class SnakeLogic
     int movesCount = 0;
     int appleGenerationRate = 15; // 1 apple ever 5 moves by snake
     bool ateAppleLastMove = false;
-    int GRID_ROWS = 20;
-    int GRID_COLUMNS = 20;
 
     void generateApple();
     void eatApple();
