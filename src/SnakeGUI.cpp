@@ -13,6 +13,10 @@ bool SnakeGUI::openWindow()
     m_window.create(sf::VideoMode(GRID_WIDTH, GRID_HEIGHT), "Snake");
     m_window.setFramerateLimit(60);
     m_window.setKeyRepeatEnabled(false);
+    m_gameView.setSize(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT));
+    m_gameView.setCenter(sf::Vector2f(GRID_WIDTH/2, GRID_HEIGHT/2));
+    m_gameView.setViewport(sf::FloatRect(0,0,1,1));
+    m_window.setView(m_gameView);
 }
 
 /**
