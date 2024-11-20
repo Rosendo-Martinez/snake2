@@ -1,6 +1,4 @@
 #include "SnakeLoop.h"
-#include "SnakeGUI.h"
-#include "SnakeLogic.h"
 
 SnakeLoop::SnakeLoop()
 {
@@ -8,14 +6,7 @@ SnakeLoop::SnakeLoop()
 
 void SnakeLoop::run()
 {
-    SnakeGUI gui;
-    SnakeLogic logic;
     gui.openWindow();
-    bool isRunning = true;
-    Direction dir = Direction::Right;
-
-    int currentFrame = 1;
-    const int moveRate = 9;
 
     while (isRunning) 
     {
