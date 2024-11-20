@@ -1,4 +1,5 @@
 #include "SnakeGUI.h"
+#include <iostream>
 
 /**
  * Snake GUI with default window size and cell size.
@@ -16,6 +17,7 @@ bool SnakeGUI::openWindow()
     m_gameView.setSize(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT));
     m_gameView.setCenter(sf::Vector2f(GRID_WIDTH/2, GRID_HEIGHT/2));
     m_gameView.setViewport(sf::FloatRect(0,0,1,1));
+
     m_window.setView(m_gameView);
 }
 
@@ -56,6 +58,21 @@ Action SnakeGUI::getInput()
         {
             return Action::Down;
         }
+    }
+
+    // VERY BAD
+    if (event.type == sf::Event::Resized)
+    {
+        sf::Vector2u size = m_window.getSize();
+
+        if (size.x > GRID_WIDTH)
+        {
+            m_gameView.setViewport(sf::FloatRect(0,0, (float) GRID_WIDTH/size.x, 1));
+        }
+        else {
+            m_gameView.setViewport(sf::FloatRect(0,0,1,1));
+        }
+        m_window.setView(m_gameView);
     }
 
     // unsupported event
