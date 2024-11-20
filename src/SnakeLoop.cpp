@@ -62,14 +62,16 @@ void SnakeLoop::doGameLogic()
 {
     if (currentFrame % moveRate == 0)
     {
+        // Move snake
         logic.move(dir);
-    }
 
-    if (logic.isDead())
-    {
-        logic.restart();
-        dir = Direction::Right;
-        currentFrame = 1;
+        // Restart game if snake died
+        if (logic.isDead())
+        {
+            logic.restart();
+            dir = Direction::Right;
+            currentFrame = 1;
+        }
     }
 }
 
