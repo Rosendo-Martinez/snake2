@@ -12,6 +12,7 @@ class SnakeLoop
 
     void doUserInput();
     void doGameLogic();
+    void doRender();
 
 public:
 

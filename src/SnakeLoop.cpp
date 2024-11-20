@@ -12,21 +12,7 @@ void SnakeLoop::run()
     {
         doUserInput();
         doGameLogic();
-
-        gui.clear();
-        gui.drawGrid();
-        
-        for (int i = 0; i < logic.getSize(); i++)
-        {
-            gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
-        }
-
-        for (int i = 0; i < logic.getSizeApples(); i++)
-        {
-            gui.drawCell(Color::Green, logic.getApples()[i].gx, logic.getApples()[i].gy);
-        }
-
-        gui.update();
+        doRender();
 
         currentFrame++;
     }
@@ -74,4 +60,22 @@ void SnakeLoop::doGameLogic()
     {
         isRunning = false;
     }
+}
+
+void SnakeLoop::doRender()
+{
+    gui.clear();
+    gui.drawGrid();
+    
+    for (int i = 0; i < logic.getSize(); i++)
+    {
+        gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
+    }
+
+    for (int i = 0; i < logic.getSizeApples(); i++)
+    {
+        gui.drawCell(Color::Green, logic.getApples()[i].gx, logic.getApples()[i].gy);
+    }
+
+    gui.update();
 }
