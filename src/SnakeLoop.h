@@ -9,6 +9,7 @@ class SnakeLoop
     Direction dir = Direction::Right;
     int currentFrame = 1;
     const int moveRate = 9;
+    bool isOnStartMenu = true;
 
     void doUserInput();
     void doGameLogic();

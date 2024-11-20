@@ -7,7 +7,7 @@
 
 enum class Action
 {
-    Close_Window, None, Up, Down, Left, Right
+    Close_Window, None, Up, Down, Left, Right, Enter_Game
 };
 
 enum class Color
@@ -28,6 +28,7 @@ public:
     void clear();
     void drawGrid();
     void drawCell(Color c, int gx, int gy);
+    void drawStartScreen();
     void update();
 
     Action getInput();

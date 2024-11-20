@@ -14,7 +14,10 @@ void SnakeLoop::run()
     while (isRunning) 
     {
         doUserInput();
-        doGameLogic();
+        if (!isOnStartMenu)
+        {
+            doGameLogic();
+        }
         doRender();
 
         currentFrame++;
@@ -50,6 +53,10 @@ void SnakeLoop::doUserInput()
         {
             dir = Direction::Down;
         }
+        else if (input == Action::Enter_Game)
+        {
+            isOnStartMenu = false;
+        }
 
         input = gui.getInput();
     }   
@@ -81,18 +88,26 @@ void SnakeLoop::doGameLogic()
 void SnakeLoop::doRender()
 {
     gui.clear();
-    gui.drawGrid();
-    
-    // Draw apples
-    for (int i = 0; i < logic.getSizeApples(); i++)
-    {
-        gui.drawCell(Color::Green, logic.getApples()[i].gx, logic.getApples()[i].gy);
-    }
 
-    // Draw snake
-    for (int i = 0; i < logic.getSize(); i++)
+    if (isOnStartMenu)
     {
-        gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
+        gui.drawStartScreen();
+    }
+    else
+    {
+        gui.drawGrid();
+        
+        // Draw apples
+        for (int i = 0; i < logic.getSizeApples(); i++)
+        {
+            gui.drawCell(Color::Green, logic.getApples()[i].gx, logic.getApples()[i].gy);
+        }
+
+        // Draw snake
+        for (int i = 0; i < logic.getSize(); i++)
+        {
+            gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
+        }
     }
 
     gui.update();

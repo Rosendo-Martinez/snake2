@@ -58,6 +58,10 @@ Action SnakeGUI::getInput()
         {
             return Action::Down;
         }
+        else if (event.key.code == sf::Keyboard::Enter)
+        {
+            return Action::Enter_Game;
+        }
     }
 
     // VERY BAD
@@ -149,6 +153,16 @@ void SnakeGUI::drawCell(Color c, int gx, int gy)
     cell.setPosition(sf::Vector2f(gx * CELL_WIDTH, gy * CELL_HEIGHT));
     cell.setFillColor(sfColor);
     m_window.draw(cell);
+}
+
+/**
+ * Draws the start screen.
+ */
+void SnakeGUI::drawStartScreen()
+{
+    sf::RectangleShape rectangle(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT));
+    rectangle.setFillColor(sf::Color::White);
+    m_window.draw(rectangle);
 }
 
 /**
