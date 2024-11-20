@@ -32,6 +32,7 @@ class SnakeLogic
     int appleSize = 0;
     int movesCount = 0;
     int appleGenerationRate = 15; // 1 apple ever 5 moves by snake
+    bool ateAppleLastMove = false;
 
     void generateApple();
     void eatApple();

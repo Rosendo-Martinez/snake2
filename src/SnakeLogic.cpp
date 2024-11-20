@@ -36,6 +36,13 @@ SnakeLogic::SnakeLogic()
  */
 void SnakeLogic::move(Direction d)
 {
+    if (ateAppleLastMove)
+    {
+        // Snake ate apple last move, so it grows this move.
+        size++;
+        ateAppleLastMove = false;
+    }
+
     // Ignore direction that moves snake backwards
     if 
     (   
@@ -155,7 +162,7 @@ void SnakeLogic::eatApple()
         if (snake[0].gx == apples[i].gx && snake[0].gy == apples[i].gy)
         {
 
-            size++;
+            ateAppleLastMove = true;
         }
     }
 }
