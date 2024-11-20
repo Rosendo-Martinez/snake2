@@ -1,3 +1,4 @@
+#define MAX_SNAKE_SIZE 100
 
 struct SnakePart
 {
@@ -22,8 +23,7 @@ enum class Direction
 
 class SnakeLogic
 {
-    const int MAX_SNAKE_SIZE = 100;
-    SnakePart snake[100];
+    SnakePart snake[MAX_SNAKE_SIZE];
     int size = 2;
     // direction snake is moving
     Direction d;
