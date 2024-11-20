@@ -157,3 +157,25 @@ void SnakeLogic::eatApple()
         }
     }
 }
+
+/**
+ * Checks if snake is dead.
+ * 
+ * Note, should be called after every call to move().
+ */
+bool SnakeLogic::isDead()
+{
+    // For now, only check if snake hit itself.
+
+    // Check if snake ate itself
+    for (int i = 1; i < size; i++)
+    {
+        if (snake[0].gx == snake[i].gx && snake[0].gy == snake[i].gy)
+        {
+            return true;
+        }
+    }
+
+    // Snake is alive
+    return false;
+}

@@ -38,6 +38,11 @@ int main()
             input = gui.getInput();
         }
 
+        if (logic.isDead())
+        {
+            return 0;
+        }
+
         gui.clear();
         gui.drawGrid();
         

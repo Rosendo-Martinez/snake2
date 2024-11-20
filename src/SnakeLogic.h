@@ -44,6 +44,7 @@ public:
     SnakeLogic();
 
     void move(Direction d);
+    bool isDead();
 
     const SnakePart * getSnake();
     const int getSize();
