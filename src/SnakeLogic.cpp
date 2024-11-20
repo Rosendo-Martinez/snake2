@@ -146,6 +146,9 @@ void SnakeLogic::generateApple()
 
 /**
  * Checks if snake head is on apple, if so it eats it.
+ * 
+ * Note, snake growth is delayed by one move. So if snake eat apple this 
+ * move, then it won't grow till next one.
  */
 void SnakeLogic::eatApple()
 {
@@ -154,15 +157,19 @@ void SnakeLogic::eatApple()
     {
         return;
     }
-
-    // Snake grows but apple is not deleted, for now.
     
     for (int i = 0; i < appleSize; i++)
     {
         if (snake[0].gx == apples[i].gx && snake[0].gy == apples[i].gy)
         {
+            ateAppleLastMove = true; // delayed snake grow
 
-            ateAppleLastMove = true;
+            // Delete apple that was eaten
+            for (int j = i; j < appleSize - 1; j++)
+            {
+                apples[j] = apples[j + 1];
+            }
+            appleSize--;
         }
     }
 }
