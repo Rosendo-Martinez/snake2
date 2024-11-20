@@ -1,4 +1,6 @@
 #include "SnakeLogic.h"
+#include <cstdlib>
+#include <ctime>
 
 SnakePart::SnakePart()
     : SnakePart(0,0)
@@ -26,6 +28,8 @@ SnakeLogic::SnakeLogic()
     snake[1] = SnakePart(0,0);
 
     d = Direction::Right;
+
+    std::srand(std::time(nullptr)); // use current time as seed for random generator
 }
 
 /**
@@ -120,28 +124,8 @@ void SnakeLogic::generateApple()
         return;
     }
 
-    // Temporary implementation!
-
-    if (appleSize == 0)
-    {
-        apples[0] = Apple(10,10);
-        appleSize++;
-        return;
-    }
-
-    if (appleSize == 1)
-    {
-        apples[1] = Apple(15,15);
-        appleSize++;
-        return;
-    }
-
-    if (appleSize == 2)
-    {
-        apples[2] = Apple(1,1);
-        appleSize++;
-        return;
-    }
+    apples[appleSize] = Apple(rand() % GRID_COLUMNS, rand() % GRID_ROWS);
+    appleSize++;
 }
 
 /**
