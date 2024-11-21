@@ -1,6 +1,11 @@
 #include "SnakeGUI.h"
 #include "SnakeLogic.h"
 
+enum class Scene
+{
+    In_Game, Start, End
+};
+
 class SnakeLoop
 {
     SnakeGUI gui;
@@ -9,8 +14,7 @@ class SnakeLoop
     Direction dir = Direction::Right;
     int currentFrame = 1;
     const int moveRate = 9;
-    bool isOnStartMenu = true;
-    bool isOnEndMenu = false;
+    Scene currentScene = Scene::Start;
 
     void doUserInput();
     void doGameLogic();
