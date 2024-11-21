@@ -15,4 +15,5 @@ public:
 
     int getScore();
     int getHighestScore();
+    bool isNewHighScore();
 };
