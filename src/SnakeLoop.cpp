@@ -37,29 +37,29 @@ void SnakeLoop::doUserInput()
             isRunning = false;
             break;
         }
-        else if (input == Action::Right)
+        
+        if (currentScene == Scene::In_Game)
         {
-            userInputDir = Direction::Right;
-        }
-        else if (input == Action::Left)
-        {
-            userInputDir = Direction::Left;
-        }
-        else if (input == Action::Up)
-        {
-            userInputDir = Direction::Up;
-        }
-        else if (input == Action::Down)
-        {
-            userInputDir = Direction::Down;
-        }
-        else if (input == Action::Enter_Game)
-        {
-            if (currentScene == Scene::Start)
+            if (input == Action::Right)
             {
-                currentScene = Scene::In_Game;
+                userInputDir = Direction::Right;
             }
-            else if (currentScene == Scene::End)
+            else if (input == Action::Left)
+            {
+                userInputDir = Direction::Left;
+            }
+            else if (input == Action::Up)
+            {
+                userInputDir = Direction::Up;
+            }
+            else if (input == Action::Down)
+            {
+                userInputDir = Direction::Down;
+            }
+        } 
+        else // start, or end scene
+        {
+            if (input == Action::Enter_Game)
             {
                 currentScene = Scene::In_Game;
             }
