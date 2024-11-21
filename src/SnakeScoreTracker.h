@@ -1,0 +1,6 @@
+class SnakeScoreTracker
+{
+
+public:
+    SnakeScoreTracker();
+};

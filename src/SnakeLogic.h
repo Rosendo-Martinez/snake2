@@ -1,3 +1,5 @@
+#include "SnakeScoreTracker.h"
+
 #define MAX_SNAKE_SIZE 100
 #define MAX_APPLES 3
 #define GRID_ROWS 20
@@ -35,6 +37,7 @@ class SnakeLogic
     int appleGenerationRate = 15;
     bool ateAppleLastMove = false;
     int applesEaten = 0;
+    SnakeScoreTracker st;
 
     void generateApple();
     void eatApple();
