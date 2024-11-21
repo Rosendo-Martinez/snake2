@@ -1,6 +1,11 @@
 #include "SnakeGUI.h"
 #include <iostream>
 
+#define RED sf::Color(255, 0, 0, 255)
+#define GREEN sf::Color(0, 255, 0, 255)
+#define GRID_COLOR sf::Color(255, 255, 255, 30)
+#define FPS 60
+
 /**
  * Snake GUI with default window size and cell size.
  */
@@ -12,7 +17,7 @@ SnakeGUI::SnakeGUI() {}
 bool SnakeGUI::openWindow()
 {
     m_window.create(sf::VideoMode(GRID_WIDTH, GRID_HEIGHT), "Snake");
-    m_window.setFramerateLimit(60);
+    m_window.setFramerateLimit(FPS);
     m_window.setKeyRepeatEnabled(false);
     m_gameView.setSize(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT));
     m_gameView.setCenter(sf::Vector2f(GRID_WIDTH/2, GRID_HEIGHT/2));
@@ -106,9 +111,7 @@ void SnakeGUI::clear()
  * Draws the grid.
  */
 void SnakeGUI::drawGrid()
-{
-    sf::Color color(255, 255, 255, 30);
-    
+{   
     const int hLinesCount = GRID_HEIGHT/CELL_HEIGHT - 1;
     sf::VertexArray hLines(sf::Lines, hLinesCount * 2);
 
@@ -117,8 +120,8 @@ void SnakeGUI::drawGrid()
         hLines[i * 2].position = sf::Vector2f(0, CELL_HEIGHT * (i + 1));
         hLines[i * 2 + 1].position = sf::Vector2f(GRID_WIDTH, CELL_HEIGHT * (i + 1));
 
-        hLines[i * 2].color = color;
-        hLines[i * 2 + 1].color = color;
+        hLines[i * 2].color = GRID_COLOR;
+        hLines[i * 2 + 1].color = GRID_COLOR;
     }
 
     const int vLinesCount = GRID_WIDTH/CELL_WIDTH - 1;
@@ -129,8 +132,8 @@ void SnakeGUI::drawGrid()
         vLines[i * 2].position = sf::Vector2f(CELL_WIDTH * (i + 1), 0);
         vLines[i * 2 + 1].position = sf::Vector2f(CELL_WIDTH * (i + 1), GRID_HEIGHT);
 
-        vLines[i * 2].color = color;
-        vLines[i * 2 + 1].color = color;
+        vLines[i * 2].color = GRID_COLOR;
+        vLines[i * 2 + 1].color = GRID_COLOR;
     }
 
     m_window.draw(hLines);
@@ -147,11 +150,11 @@ void SnakeGUI::drawCell(Color c, int gx, int gy)
     sf::Color sfColor;
     if (c == Color::Red)
     {
-        sfColor = sf::Color::Red;
+        sfColor = RED;
     }
     else if (c == Color::Green)
     {
-        sfColor = sf::Color::Green;
+        sfColor = GREEN;
     }
 
     sf::RectangleShape cell(sf::Vector2f(CELL_WIDTH, CELL_HEIGHT));
