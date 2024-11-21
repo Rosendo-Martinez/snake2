@@ -11,6 +11,11 @@ int SnakeScoreTracker::getScore()
     return score;
 }
 
+int SnakeScoreTracker::getHighestScore()
+{
+    return highestScore;
+}
+
 void SnakeScoreTracker::incrementScore()
 {
     score += INCREMENT;
@@ -18,5 +23,10 @@ void SnakeScoreTracker::incrementScore()
 
 void SnakeScoreTracker::resetScore()
 {
+    if (score > highestScore)
+    {
+        highestScore = score;
+    }
+
     score = 0;
 }
