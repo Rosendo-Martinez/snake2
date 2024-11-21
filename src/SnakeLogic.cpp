@@ -193,7 +193,11 @@ bool SnakeLogic::isDead()
 }
 
 /**
- * Restarts the game. Should use after snake dies.
+ * Restarts the game. Should call right before starting next 
+ * game.
+ * 
+ * Note: score tracker is also reset. Calling this method to soon could cause
+ * score tracker to return unexpected results.
  */
 void SnakeLogic::restart()
 {
