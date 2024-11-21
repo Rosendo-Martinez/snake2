@@ -39,19 +39,19 @@ void SnakeLoop::doUserInput()
         }
         else if (input == Action::Right)
         {
-            dir = Direction::Right;
+            userInputDir = Direction::Right;
         }
         else if (input == Action::Left)
         {
-            dir = Direction::Left;
+            userInputDir = Direction::Left;
         }
         else if (input == Action::Up)
         {
-            dir = Direction::Up;
+            userInputDir = Direction::Up;
         }
         else if (input == Action::Down)
         {
-            dir = Direction::Down;
+            userInputDir = Direction::Down;
         }
         else if (input == Action::Enter_Game)
         {
@@ -77,13 +77,13 @@ void SnakeLoop::doGameLogic()
     if (currentFrame % moveRate == 0)
     {
         // Move snake
-        logic.move(dir);
+        logic.move(userInputDir);
 
         // Restart game if snake died
         if (logic.isDead())
         {
             logic.restart();
-            dir = Direction::Right;
+            userInputDir = Direction::Right;
             currentFrame = 1;
             currentScene = Scene::End;
         }

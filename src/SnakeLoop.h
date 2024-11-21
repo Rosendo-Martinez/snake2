@@ -12,7 +12,7 @@ class SnakeLoop
     SnakeGUI gui;
     SnakeLogic logic;
     bool isRunning = true;
-    Direction dir = Direction::Right;
+    Direction userInputDir = Direction::Right;
     int currentFrame = 1;
     const int moveRate = 9;
     Scene currentScene = Scene::Start;
