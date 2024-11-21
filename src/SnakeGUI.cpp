@@ -64,7 +64,7 @@ Action SnakeGUI::getInput()
         }
     }
 
-    // VERY BAD
+    // Handle resizing of screen
     if (event.type == sf::Event::Resized)
     {
         sf::Vector2u size = m_window.getSize();
@@ -72,17 +72,22 @@ Action SnakeGUI::getInput()
 
         if (size.x > GRID_WIDTH)
         {
+            // Center grid horizontally, and maintain constent width
             newGameViewPort.width = (float) GRID_WIDTH/size.x;
             newGameViewPort.left = (1 - newGameViewPort.width)/2;
         }
         if (size.y > GRID_HEIGHT)
         {
+            // Center grid vertically, and maintain constent height
             newGameViewPort.height = (float) GRID_HEIGHT/size.y;
             newGameViewPort.top = (1 - newGameViewPort.height)/2;
         }
 
         m_gameView.setViewport(newGameViewPort);
         m_window.setView(m_gameView);
+
+        // resizing is handled automatically
+        return Action::None;
     }
 
     // unsupported event
