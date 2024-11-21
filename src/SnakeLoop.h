@@ -1,13 +1,14 @@
 #include "SnakeGUI.h"
 #include "SnakeLogic.h"
 
-enum class Scene
-{
-    In_Game, Start, End
-};
 
 class SnakeLoop
 {
+    enum class Scene
+    {
+        In_Game, Start, End
+    };
+    
     SnakeGUI gui;
     SnakeLogic logic;
     bool isRunning = true;
