@@ -57,7 +57,19 @@ void SnakeLoop::doUserInput()
                 userInputDir = Direction::Down;
             }
         } 
-        else // start, or end scene
+        else if (currentScene == Scene::End)
+        {
+            if (input == Action::Enter_Game)
+            {
+                // Restart game 
+                logic.restart();
+                userInputDir = Direction::Right;
+                currentFrame = 1;
+
+                currentScene = Scene::In_Game;
+            }
+        }
+        else // start scene
         {
             if (input == Action::Enter_Game)
             {
@@ -79,12 +91,9 @@ void SnakeLoop::doGameLogic()
         // Move snake
         logic.move(userInputDir);
 
-        // Restart game if snake died
+        // Game over, go to end scene
         if (logic.isDead())
         {
-            logic.restart();
-            userInputDir = Direction::Right;
-            currentFrame = 1;
             currentScene = Scene::End;
         }
     }
