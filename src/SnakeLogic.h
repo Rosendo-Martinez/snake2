@@ -34,6 +34,7 @@ class SnakeLogic
     int movesCount = 0;
     int appleGenerationRate = 15;
     bool ateAppleLastMove = false;
+    int applesEaten = 0;
 
     void generateApple();
     void eatApple();
@@ -50,4 +51,5 @@ public:
     const int getSize();
     const Apple * getApples();
     const int getSizeApples();
+    int getApplesEaten();
 };

@@ -154,6 +154,7 @@ void SnakeLogic::eatApple()
                 apples[j] = apples[j + 1];
             }
             applesSize--;
+            applesEaten++;
         }
     }
 }
@@ -202,4 +203,10 @@ void SnakeLogic::restart()
     applesSize = 0;
     movesCount = 0;
     ateAppleLastMove = false;
+    applesEaten = 0;
+}
+
+int SnakeLogic::getApplesEaten()
+{
+    return applesEaten;
 }
