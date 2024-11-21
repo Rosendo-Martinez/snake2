@@ -27,13 +27,12 @@ enum class Direction
 class SnakeLogic
 {
     SnakePart snake[MAX_SNAKE_SIZE];
-    int size = 2;
-    // direction snake is moving
-    Direction d;
+    int snakeSize = 2;
+    Direction currentDirection;
     Apple apples[MAX_APPLES];
-    int appleSize = 0;
+    int applesSize = 0;
     int movesCount = 0;
-    int appleGenerationRate = 15; // 1 apple ever 5 moves by snake
+    int appleGenerationRate = 15;
     bool ateAppleLastMove = false;
 
     void generateApple();
@@ -43,7 +42,7 @@ public:
 
     SnakeLogic();
 
-    void move(Direction d);
+    void move(Direction dir);
     bool isDead();
     void restart();
 

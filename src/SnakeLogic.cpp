@@ -27,7 +27,7 @@ SnakeLogic::SnakeLogic()
     snake[0] = SnakePart(1,0);
     snake[1] = SnakePart(0,0);
 
-    d = Direction::Right;
+    currentDirection = Direction::Right;
 
     std::srand(std::time(nullptr)); // use current time as seed for random generator
 }
@@ -38,52 +38,52 @@ SnakeLogic::SnakeLogic()
  * Note: snake can't move backwards. If user tries to move backwards 
  * the given direction will be ignored, and snake will move forward.
  */
-void SnakeLogic::move(Direction d)
+void SnakeLogic::move(Direction dir)
 {
     if (ateAppleLastMove)
     {
         // Snake ate apple last move, so it grows this move.
-        size++;
+        snakeSize++;
         ateAppleLastMove = false;
     }
 
     // Ignore direction that moves snake backwards
     if 
     (   
-        (this->d == Direction::Right && d == Direction::Left) ||
-        (this->d == Direction::Left && d == Direction::Right) ||
-        (this->d == Direction::Up && d == Direction::Down)    ||
-        (this->d == Direction::Down && d == Direction::Up)
+        (this->currentDirection == Direction::Right && dir == Direction::Left) ||
+        (this->currentDirection == Direction::Left && dir == Direction::Right) ||
+        (this->currentDirection == Direction::Up && dir == Direction::Down)    ||
+        (this->currentDirection == Direction::Down && dir == Direction::Up)
     )
     {
-        d = this->d;
+        dir = this->currentDirection;
     }
 
     // shift snake back
-    for (int i = size - 1; i > 0; i--)
+    for (int i = snakeSize - 1; i > 0; i--)
     {
         snake[i] = snake[i - 1];
     }
 
     // Update position of head
-    if (d == Direction::Up)
+    if (dir == Direction::Up)
     {
         snake[0].gy--;
     }
-    else if (d == Direction::Down)
+    else if (dir == Direction::Down)
     {
         snake[0].gy++;
     }
-    else if (d == Direction::Left)
+    else if (dir == Direction::Left)
     {
         snake[0].gx--;
     }
-    else if (d == Direction::Right)
+    else if (dir == Direction::Right)
     {
         snake[0].gx++;
     }
 
-    this->d = d;
+    this->currentDirection = dir;
     movesCount++;
     eatApple();
     generateApple();
@@ -96,7 +96,7 @@ const SnakePart * SnakeLogic::getSnake()
 
 const int SnakeLogic::getSize()
 {
-    return size;
+    return snakeSize;
 }
 
 const Apple * SnakeLogic::getApples()
@@ -106,7 +106,7 @@ const Apple * SnakeLogic::getApples()
 
 const int SnakeLogic::getSizeApples()
 {
-    return appleSize;
+    return applesSize;
 }
 
 /**
@@ -117,15 +117,15 @@ void SnakeLogic::generateApple()
     // max amount of apples, or apple can't be generated yet
     if 
     (
-        (appleSize == MAX_APPLES) ||
+        (applesSize == MAX_APPLES) ||
         (movesCount % appleGenerationRate != 0)
     )
     {
         return;
     }
 
-    apples[appleSize] = Apple(rand() % GRID_COLUMNS, rand() % GRID_ROWS);
-    appleSize++;
+    apples[applesSize] = Apple(rand() % GRID_COLUMNS, rand() % GRID_ROWS);
+    applesSize++;
 }
 
 /**
@@ -137,23 +137,23 @@ void SnakeLogic::generateApple()
 void SnakeLogic::eatApple()
 {
     // Snake at max size
-    if (size == MAX_SNAKE_SIZE)
+    if (snakeSize == MAX_SNAKE_SIZE)
     {
         return;
     }
     
-    for (int i = 0; i < appleSize; i++)
+    for (int i = 0; i < applesSize; i++)
     {
         if (snake[0].gx == apples[i].gx && snake[0].gy == apples[i].gy)
         {
             ateAppleLastMove = true; // delayed snake grow
 
             // Delete apple that was eaten
-            for (int j = i; j < appleSize - 1; j++)
+            for (int j = i; j < applesSize - 1; j++)
             {
                 apples[j] = apples[j + 1];
             }
-            appleSize--;
+            applesSize--;
         }
     }
 }
@@ -168,7 +168,7 @@ void SnakeLogic::eatApple()
 bool SnakeLogic::isDead()
 {
     // Check if snake ate itself
-    for (int i = 1; i < size; i++)
+    for (int i = 1; i < snakeSize; i++)
     {
         if (snake[0].gx == snake[i].gx && snake[0].gy == snake[i].gy)
         {
@@ -197,9 +197,9 @@ void SnakeLogic::restart()
 {
     snake[0] = SnakePart(1,0);
     snake[1] = SnakePart(0,0);
-    size = 2;
-    d = Direction::Right;
-    appleSize = 0;
+    snakeSize = 2;
+    currentDirection = Direction::Right;
+    applesSize = 0;
     movesCount = 0;
     ateAppleLastMove = false;
 }
