@@ -37,12 +37,12 @@ class SnakeLogic
     int appleGenerationRate = 15;
     bool ateAppleLastMove = false;
     int applesEaten = 0;
-    SnakeScoreTracker st;
 
     void generateApple();
     void eatApple();
 
 public:
+    SnakeScoreTracker st;
 
     SnakeLogic();
 
