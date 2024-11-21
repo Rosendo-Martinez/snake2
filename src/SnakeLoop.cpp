@@ -105,7 +105,7 @@ void SnakeLoop::doRender()
     {
         gui.drawEndScreen();
     }
-    else
+    else // in game
     {
         gui.drawGrid();
         
