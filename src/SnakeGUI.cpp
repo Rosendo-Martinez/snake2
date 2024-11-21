@@ -190,3 +190,8 @@ void SnakeGUI::update()
 {
     m_window.display();
 }
+
+void SnakeGUI::drawApple(int gx, int gy)
+{
+    drawCell(Color::Green, gx, gy);
+}

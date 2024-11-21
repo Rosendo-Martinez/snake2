@@ -121,7 +121,7 @@ void SnakeLoop::doRender()
         // Draw apples
         for (int i = 0; i < logic.getSizeApples(); i++)
         {
-            gui.drawCell(Color::Green, logic.getApples()[i].gx, logic.getApples()[i].gy);
+            gui.drawApple(logic.getApples()[i].gx, logic.getApples()[i].gy);
         }
 
         // Draw snake

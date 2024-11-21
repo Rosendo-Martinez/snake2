@@ -28,6 +28,7 @@ public:
     void clear();
     void drawGrid();
     void drawCell(Color c, int gx, int gy);
+    void drawApple(int gx, int gy);
     void drawStartScreen();
     void drawEndScreen();
     void update();
