@@ -16,4 +16,5 @@ public:
     int getScore();
     int getHighestScore();
     bool isNewHighScore();
+    int getScoreDiff();
 };

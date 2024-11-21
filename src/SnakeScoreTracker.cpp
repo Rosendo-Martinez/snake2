@@ -58,3 +58,12 @@ void SnakeScoreTracker::resetScore()
 
     score = 0;
 }
+
+/**
+ * Returns the difference between the highest score so far
+ * and the score for the current game.
+ */
+int SnakeScoreTracker::getScoreDiff()
+{
+    return highestScore - score;
+}
