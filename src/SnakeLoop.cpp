@@ -14,7 +14,7 @@ void SnakeLoop::run()
     while (isRunning) 
     {
         doUserInput();
-        if (!isOnStartMenu)
+        if (!isOnStartMenu && !isOnEndMenu)
         {
             doGameLogic();
         }
@@ -55,7 +55,14 @@ void SnakeLoop::doUserInput()
         }
         else if (input == Action::Enter_Game)
         {
-            isOnStartMenu = false;
+            if (isOnStartMenu)
+            {
+                isOnStartMenu = false;
+            }
+            else
+            {
+                isOnEndMenu = false;
+            }
         }
 
         input = gui.getInput();
@@ -78,6 +85,7 @@ void SnakeLoop::doGameLogic()
             logic.restart();
             dir = Direction::Right;
             currentFrame = 1;
+            isOnEndMenu = true;
         }
     }
 }
@@ -92,6 +100,10 @@ void SnakeLoop::doRender()
     if (isOnStartMenu)
     {
         gui.drawStartScreen();
+    }
+    else if (isOnEndMenu)
+    {
+        gui.drawEndScreen();
     }
     else
     {

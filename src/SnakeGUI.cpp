@@ -166,6 +166,16 @@ void SnakeGUI::drawStartScreen()
 }
 
 /**
+ * Draws the end screen.
+ */
+void SnakeGUI::drawEndScreen()
+{
+    sf::RectangleShape rectangle(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT));
+    rectangle.setFillColor(sf::Color::Blue);
+    m_window.draw(rectangle);
+}
+
+/**
  * Updates the window to display new frame.
  */
 void SnakeGUI::update()

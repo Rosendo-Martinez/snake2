@@ -29,6 +29,7 @@ public:
     void drawGrid();
     void drawCell(Color c, int gx, int gy);
     void drawStartScreen();
+    void drawEndScreen();
     void update();
 
     Action getInput();

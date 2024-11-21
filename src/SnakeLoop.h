@@ -10,6 +10,7 @@ class SnakeLoop
     int currentFrame = 1;
     const int moveRate = 9;
     bool isOnStartMenu = true;
+    bool isOnEndMenu = false;
 
     void doUserInput();
     void doGameLogic();
