@@ -196,13 +196,25 @@ void SnakeGUI::drawApple(int gx, int gy)
     sf::ConvexShape apple;
 
     apple.setPointCount(4);
-    apple.setPoint(0, sf::Vector2f(0,0));
-    apple.setPoint(1, sf::Vector2f(CELL_WIDTH,0));
-    apple.setPoint(2, sf::Vector2f(CELL_WIDTH, CELL_HEIGHT));
-    apple.setPoint(3, sf::Vector2f(0,CELL_HEIGHT));
+    apple.setPoint(0, sf::Vector2f(5,10));
+    apple.setPoint(1, sf::Vector2f(35,10));
+    apple.setPoint(2, sf::Vector2f(35,35));
+    apple.setPoint(3, sf::Vector2f(5,35));
 
     apple.setFillColor(GREEN);
     apple.setPosition(sf::Vector2f(gx*CELL_WIDTH, gy*CELL_HEIGHT));
 
+    sf::ConvexShape stem;
+    sf::Color brown(139, 69, 19);
+
+    stem.setPointCount(4);
+    stem.setPoint(0, sf::Vector2f(20,10));
+    stem.setPoint(1, sf::Vector2f(30,0));
+    stem.setPoint(2, sf::Vector2f(35,0));
+    stem.setPoint(3, sf::Vector2f(25,10));
+    stem.setFillColor(brown);
+    stem.setPosition(sf::Vector2f(gx*CELL_WIDTH, gy*CELL_HEIGHT));
+
     m_window.draw(apple);
+    m_window.draw(stem);
 }
