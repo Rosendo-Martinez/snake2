@@ -147,6 +147,24 @@ void SnakeGUI::drawGrid()
 
     m_window.draw(hLines);
     m_window.draw(vLines);
+
+    // draw boarder
+
+    sf::VertexArray boarder(sf::LineStrip, 5);
+
+    boarder[0].position = sf::Vector2f(1, CELL_HEIGHT);
+    boarder[1].position = sf::Vector2f(GRID_WIDTH, CELL_HEIGHT);
+    boarder[2].position = sf::Vector2f(GRID_WIDTH, GRID_HEIGHT + CELL_HEIGHT);
+    boarder[3].position = sf::Vector2f(1, GRID_HEIGHT + CELL_HEIGHT);
+    boarder[4].position = sf::Vector2f(1, CELL_HEIGHT);
+
+    boarder[0].color = RED;
+    boarder[1].color = RED;
+    boarder[2].color = RED;
+    boarder[3].color = RED;
+    boarder[4].color = RED;
+
+    m_window.draw(boarder);
 }
 
 /**
