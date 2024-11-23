@@ -21,6 +21,8 @@ SnakeGUI::SnakeGUI() {}
  */
 bool SnakeGUI::openWindow()
 {
+    font.loadFromFile("./assets/font.TTF"); // maybe do error checking?
+
     m_window.create(sf::VideoMode(GRID_WIDTH, GRID_HEIGHT + CELL_HEIGHT), "Snake");
     m_window.setFramerateLimit(FPS);
     m_window.setKeyRepeatEnabled(false);
@@ -143,6 +145,15 @@ void SnakeGUI::drawGrid()
 
     m_window.draw(hLines);
     m_window.draw(vLines);
+
+    sf::Text text;
+    text.setFont(font);
+    text.setString("Hello snake!");
+    text.setCharacterSize(30);
+    text.setFillColor(RED);
+    text.setPosition(sf::Vector2f(10,10));
+
+    m_window.draw(text);
 }
 
 /**
@@ -201,7 +212,7 @@ void SnakeGUI::update()
 void SnakeGUI::drawApple(int gx, int gy)
 {
     gy++; // grid offset
-    
+
     sf::ConvexShape apple;
 
     apple.setPointCount(4);

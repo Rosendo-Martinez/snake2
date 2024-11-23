@@ -14,6 +14,8 @@ class SnakeGUI
 {
     sf::RenderWindow m_window;
     sf::View m_gameView;
+    sf::Font font;
+    
 public:
 
     SnakeGUI();
