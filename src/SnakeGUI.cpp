@@ -246,4 +246,17 @@ void SnakeGUI::drawScores(int currentScore, int highScore)
     currentScoreText.setString(currentScoreSS.str());
 
     m_window.draw(currentScoreText);
+
+    sf::Text highScoreText;
+    highScoreText.setFont(font);
+    highScoreText.setCharacterSize(30);
+    highScoreText.setFillColor(RED);
+
+    std::stringstream highScoreSS;
+    highScoreSS << "High  Score  " << highScore;
+
+    highScoreText.setString(highScoreSS.str());
+
+    highScoreText.setPosition(sf::Vector2f(GRID_WIDTH - highScoreText.getGlobalBounds().width,0));
+    m_window.draw(highScoreText);
 }
