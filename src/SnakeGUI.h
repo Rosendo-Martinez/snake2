@@ -26,8 +26,6 @@ public:
     void drawGrid();
     void drawCell(Color c, int gx, int gy);
     void drawApple(int gx, int gy);
-    void drawStartScreen();
-    void drawEndScreen();
     void drawScores(int currentScore, int highScore);
     void update();
     void drawInstructions(bool isGameOver, bool isPaused);

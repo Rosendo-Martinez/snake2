@@ -197,26 +197,6 @@ void SnakeGUI::drawCell(Color c, int gx, int gy)
 }
 
 /**
- * Draws the start screen.
- */
-void SnakeGUI::drawStartScreen()
-{
-    sf::RectangleShape rectangle(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT + CELL_HEIGHT));
-    rectangle.setFillColor(sf::Color::White);
-    m_window.draw(rectangle);
-}
-
-/**
- * Draws the end screen.
- */
-void SnakeGUI::drawEndScreen()
-{
-    sf::RectangleShape rectangle(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT + CELL_HEIGHT));
-    rectangle.setFillColor(sf::Color::Blue);
-    m_window.draw(rectangle);
-}
-
-/**
  * Updates the window to display new frame.
  */
 void SnakeGUI::update()
