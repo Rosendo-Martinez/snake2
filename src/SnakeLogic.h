@@ -1,6 +1,6 @@
 #include "SnakeScoreTracker.h"
 
-#define MAX_SNAKE_SIZE 100
+#define MAX_SNAKE_SIZE 200
 #define MAX_APPLES 3
 #define GRID_ROWS 20
 #define GRID_COLUMNS 20
