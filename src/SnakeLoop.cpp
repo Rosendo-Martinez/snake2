@@ -118,6 +118,8 @@ void SnakeLoop::doRender()
     {
         gui.drawGrid();
         
+        gui.drawScores(logic.st.getScore(), logic.st.getHighestScore());
+
         // Draw apples
         for (int i = 0; i < logic.getSizeApples(); i++)
         {

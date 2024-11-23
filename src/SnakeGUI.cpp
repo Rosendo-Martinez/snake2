@@ -1,5 +1,7 @@
 #include "SnakeGUI.h"
 #include <iostream>
+#include <string>
+#include <sstream>
 
 #define GRID_WIDTH  800
 #define GRID_HEIGHT 800
@@ -145,15 +147,6 @@ void SnakeGUI::drawGrid()
 
     m_window.draw(hLines);
     m_window.draw(vLines);
-
-    sf::Text text;
-    text.setFont(font);
-    text.setString("Hello snake!");
-    text.setCharacterSize(30);
-    text.setFillColor(RED);
-    text.setPosition(sf::Vector2f(10,10));
-
-    m_window.draw(text);
 }
 
 /**
@@ -237,4 +230,20 @@ void SnakeGUI::drawApple(int gx, int gy)
 
     m_window.draw(apple);
     m_window.draw(stem);
+}
+
+void SnakeGUI::drawScores(int currentScore, int highScore)
+{
+    sf::Text currentScoreText;
+    currentScoreText.setFont(font);
+    currentScoreText.setCharacterSize(30);
+    currentScoreText.setFillColor(RED);
+    currentScoreText.setPosition(sf::Vector2f(0,0));
+
+    std::stringstream currentScoreSS;
+    currentScoreSS << "Score  " << currentScore;
+
+    currentScoreText.setString(currentScoreSS.str());
+
+    m_window.draw(currentScoreText);
 }
