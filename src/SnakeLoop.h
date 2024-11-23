@@ -11,6 +11,7 @@ class SnakeLoop
     int currentFrame = 1;
     const int moveRate = 9;
     bool isPaused = true;
+    bool isGameOver = true;
 
     void doUserInput();
     void doGameLogic();

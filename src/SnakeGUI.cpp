@@ -76,6 +76,10 @@ Action SnakeGUI::getInput()
         {
             return Action::Enter_Game;
         }
+        else if (event.key.code == sf::Keyboard::Space)
+        {
+            return Action::Toggle_Pause;
+        }
     }
 
     // Handle resizing of screen
@@ -279,13 +283,24 @@ void SnakeGUI::drawScores(int currentScore, int highScore)
     m_window.draw(highScoreText);
 }
 
-void SnakeGUI::drawInstructionsToPlay()
+void SnakeGUI::drawInstructions(bool iGameOver, bool isPaused)
 {
     sf::Text instruction;
     instruction.setFont(font);
     instruction.setCharacterSize(20);
     instruction.setFillColor(RED);
-    instruction.setString("Press  Enter  To  Play");
+    if (iGameOver) // game over / hasn't started
+    {
+        instruction.setString("Press  Enter  To  Play");
+    }
+    else if (!iGameOver && isPaused)
+    {
+        instruction.setString("Press  Space  To  Unpause");
+    }
+    else // in game but not paused
+    {
+        instruction.setString("Press  Space  To  Pause");
+    }
 
     instruction.setPosition(sf::Vector2f(GRID_WIDTH/2 - instruction.getGlobalBounds().width/2,10));
     m_window.draw(instruction);

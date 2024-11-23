@@ -14,13 +14,12 @@ void SnakeLoop::run()
     while (isRunning) 
     {
         doUserInput();
-        if (!isPaused)
+        if (!isPaused && !isGameOver)
         {
             doGameLogic();
+            currentFrame++;
         }
         doRender();
-
-        currentFrame++;
     }
 }
 
@@ -38,7 +37,19 @@ void SnakeLoop::doUserInput()
             break;
         }
         
-        if (!isPaused)
+        if (isGameOver)
+        {
+            if (input == Action::Enter_Game)
+            {
+                // Restart game
+                logic.restart();
+                userInputDir = Direction::Right;
+                currentFrame = 1;
+                isPaused = false;
+                isGameOver = false;
+            }
+        }
+        else if (!isPaused) // in game
         {
             if (input == Action::Right)
             {
@@ -56,15 +67,15 @@ void SnakeLoop::doUserInput()
             {
                 userInputDir = Direction::Down;
             }
-        }
-        else
-        {
-            if (input == Action::Enter_Game)
+            else if (input == Action::Toggle_Pause)
             {
-                // Restart game
-                logic.restart();
-                userInputDir = Direction::Right;
-                currentFrame = 1;
+                isPaused = true;
+            }
+        }
+        else // in game but paused
+        {
+            if (input == Action::Toggle_Pause)
+            {
                 isPaused = false;
             }
         }
@@ -86,7 +97,7 @@ void SnakeLoop::doGameLogic()
         // Game over, go to end scene
         if (logic.isDead())
         {
-            isPaused = true;
+            isGameOver = true;
         }
     }
 }
@@ -114,7 +125,7 @@ void SnakeLoop::doRender()
         gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
     }
 
-    gui.drawInstructionsToPlay();
+    gui.drawInstructions(isGameOver, isPaused);
 
     gui.update();
 }

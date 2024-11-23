@@ -2,7 +2,7 @@
 
 enum class Action
 {
-    Close_Window, None, Up, Down, Left, Right, Enter_Game
+    Close_Window, None, Up, Down, Left, Right, Enter_Game, Toggle_Pause
 };
 
 enum class Color
@@ -30,7 +30,7 @@ public:
     void drawEndScreen();
     void drawScores(int currentScore, int highScore);
     void update();
-    void drawInstructionsToPlay();
+    void drawInstructions(bool isGameOver, bool isPaused);
 
     Action getInput();
 };
