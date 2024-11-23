@@ -152,6 +152,8 @@ void SnakeGUI::drawGrid()
  */
 void SnakeGUI::drawCell(Color c, int gx, int gy)
 {
+    gy++; // grid offset
+
     sf::Color sfColor;
     if (c == Color::Red)
     {
@@ -198,6 +200,8 @@ void SnakeGUI::update()
 
 void SnakeGUI::drawApple(int gx, int gy)
 {
+    gy++; // grid offset
+    
     sf::ConvexShape apple;
 
     apple.setPointCount(4);
