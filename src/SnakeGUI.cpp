@@ -1,6 +1,11 @@
 #include "SnakeGUI.h"
 #include <iostream>
 
+#define GRID_WIDTH  800
+#define GRID_HEIGHT 800
+#define CELL_WIDTH  40
+#define CELL_HEIGHT 40
+
 #define RED sf::Color(255, 0, 0, 255)
 #define GREEN sf::Color(0, 255, 0, 255)
 #define GRID_COLOR sf::Color(255, 255, 255, 30)
@@ -16,11 +21,11 @@ SnakeGUI::SnakeGUI() {}
  */
 bool SnakeGUI::openWindow()
 {
-    m_window.create(sf::VideoMode(GRID_WIDTH, GRID_HEIGHT), "Snake");
+    m_window.create(sf::VideoMode(GRID_WIDTH, GRID_HEIGHT + CELL_HEIGHT), "Snake");
     m_window.setFramerateLimit(FPS);
     m_window.setKeyRepeatEnabled(false);
-    m_gameView.setSize(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT));
-    m_gameView.setCenter(sf::Vector2f(GRID_WIDTH/2, GRID_HEIGHT/2));
+    m_gameView.setSize(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT + CELL_HEIGHT));
+    m_gameView.setCenter(sf::Vector2f(GRID_WIDTH/2, (GRID_HEIGHT + CELL_HEIGHT)/2));
     m_gameView.setViewport(sf::FloatRect(0,0,1,1));
 
     m_window.setView(m_gameView);
@@ -70,7 +75,7 @@ Action SnakeGUI::getInput()
     }
 
     // Handle resizing of screen
-    if (event.type == sf::Event::Resized)
+    if (event.type == sf::Event::Resized && false) // temporary false
     {
         sf::Vector2u size = m_window.getSize();
         sf::FloatRect newGameViewPort(0,0,1,1);
@@ -178,7 +183,7 @@ void SnakeGUI::drawStartScreen()
  */
 void SnakeGUI::drawEndScreen()
 {
-    sf::RectangleShape rectangle(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT));
+    sf::RectangleShape rectangle(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT + CELL_HEIGHT));
     rectangle.setFillColor(sf::Color::Blue);
     m_window.draw(rectangle);
 }
