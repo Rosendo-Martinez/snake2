@@ -14,7 +14,7 @@ void SnakeLoop::run()
     while (isRunning) 
     {
         doUserInput();
-        if (currentScene == Scene::In_Game)
+        if (!isPaused)
         {
             doGameLogic();
         }
@@ -38,7 +38,7 @@ void SnakeLoop::doUserInput()
             break;
         }
         
-        if (currentScene == Scene::In_Game)
+        if (!isPaused)
         {
             if (input == Action::Right)
             {
@@ -56,24 +56,16 @@ void SnakeLoop::doUserInput()
             {
                 userInputDir = Direction::Down;
             }
-        } 
-        else if (currentScene == Scene::End)
+        }
+        else
         {
             if (input == Action::Enter_Game)
             {
-                // Restart game 
+                // Restart game
                 logic.restart();
                 userInputDir = Direction::Right;
                 currentFrame = 1;
-
-                currentScene = Scene::In_Game;
-            }
-        }
-        else // start scene
-        {
-            if (input == Action::Enter_Game)
-            {
-                currentScene = Scene::In_Game;
+                isPaused = false;
             }
         }
 
@@ -94,7 +86,7 @@ void SnakeLoop::doGameLogic()
         // Game over, go to end scene
         if (logic.isDead())
         {
-            currentScene = Scene::End;
+            isPaused = true;
         }
     }
 }
@@ -106,34 +98,23 @@ void SnakeLoop::doRender()
 {
     gui.clear();
 
-    // if (currentScene == Scene::Start)
-    // {
-    //     gui.drawStartScreen();
-    // }
-    // else if (currentScene == Scene::End)
-    // {
-    //     gui.drawEndScreen();
-    // }
-    // else // in game
+    gui.drawGrid();
+    
+    gui.drawScores(logic.st.getScore(), logic.st.getHighestScore());
+
+    // Draw apples
+    for (int i = 0; i < logic.getSizeApples(); i++)
     {
-        gui.drawGrid();
-        
-        gui.drawScores(logic.st.getScore(), logic.st.getHighestScore());
-
-        // Draw apples
-        for (int i = 0; i < logic.getSizeApples(); i++)
-        {
-            gui.drawApple(logic.getApples()[i].gx, logic.getApples()[i].gy);
-        }
-
-        // Draw snake
-        for (int i = 0; i < logic.getSize(); i++)
-        {
-            gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
-        }
-
-        gui.drawInstructionsToPlay();
+        gui.drawApple(logic.getApples()[i].gx, logic.getApples()[i].gy);
     }
+
+    // Draw snake
+    for (int i = 0; i < logic.getSize(); i++)
+    {
+        gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
+    }
+
+    gui.drawInstructionsToPlay();
 
     gui.update();
 }

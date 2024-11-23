@@ -3,19 +3,14 @@
 
 
 class SnakeLoop
-{
-    enum class Scene
-    {
-        In_Game, Start, End
-    };
-    
+{   
     SnakeGUI gui;
     SnakeLogic logic;
     bool isRunning = true;
     Direction userInputDir = Direction::Right;
     int currentFrame = 1;
     const int moveRate = 9;
-    Scene currentScene = Scene::Start;
+    bool isPaused = true;
 
     void doUserInput();
     void doGameLogic();
