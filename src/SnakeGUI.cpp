@@ -278,3 +278,15 @@ void SnakeGUI::drawScores(int currentScore, int highScore)
     highScoreText.setPosition(sf::Vector2f(GRID_WIDTH - highScoreText.getGlobalBounds().width,0));
     m_window.draw(highScoreText);
 }
+
+void SnakeGUI::drawInstructionsToPlay()
+{
+    sf::Text instruction;
+    instruction.setFont(font);
+    instruction.setCharacterSize(30);
+    instruction.setFillColor(RED);
+    instruction.setString("Press  Enter  To  Play");
+
+    instruction.setPosition(sf::Vector2f(GRID_WIDTH/2 - instruction.getGlobalBounds().width/2,0));
+    m_window.draw(instruction);
+}

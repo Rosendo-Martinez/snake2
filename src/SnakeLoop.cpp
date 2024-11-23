@@ -106,15 +106,15 @@ void SnakeLoop::doRender()
 {
     gui.clear();
 
-    if (currentScene == Scene::Start)
-    {
-        gui.drawStartScreen();
-    }
-    else if (currentScene == Scene::End)
-    {
-        gui.drawEndScreen();
-    }
-    else // in game
+    // if (currentScene == Scene::Start)
+    // {
+    //     gui.drawStartScreen();
+    // }
+    // else if (currentScene == Scene::End)
+    // {
+    //     gui.drawEndScreen();
+    // }
+    // else // in game
     {
         gui.drawGrid();
         
@@ -131,6 +131,8 @@ void SnakeLoop::doRender()
         {
             gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
         }
+
+        gui.drawInstructionsToPlay();
     }
 
     gui.update();

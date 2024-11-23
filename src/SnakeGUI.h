@@ -30,6 +30,7 @@ public:
     void drawEndScreen();
     void drawScores(int currentScore, int highScore);
     void update();
+    void drawInstructionsToPlay();
 
     Action getInput();
 };
