@@ -122,8 +122,8 @@ void SnakeGUI::drawGrid()
 
     for (int i = 0; i < hLinesCount; i++)
     {
-        hLines[i * 2].position = sf::Vector2f(0, CELL_HEIGHT * (i + 1));
-        hLines[i * 2 + 1].position = sf::Vector2f(GRID_WIDTH, CELL_HEIGHT * (i + 1));
+        hLines[i * 2].position = sf::Vector2f(0, CELL_HEIGHT * (i + 2));
+        hLines[i * 2 + 1].position = sf::Vector2f(GRID_WIDTH, CELL_HEIGHT * (i + 2));
 
         hLines[i * 2].color = GRID_COLOR;
         hLines[i * 2 + 1].color = GRID_COLOR;
@@ -134,8 +134,8 @@ void SnakeGUI::drawGrid()
 
     for (int i = 0; i < vLinesCount; i++)
     {
-        vLines[i * 2].position = sf::Vector2f(CELL_WIDTH * (i + 1), 0);
-        vLines[i * 2 + 1].position = sf::Vector2f(CELL_WIDTH * (i + 1), GRID_HEIGHT);
+        vLines[i * 2].position = sf::Vector2f(CELL_WIDTH * (i + 1), CELL_HEIGHT);
+        vLines[i * 2 + 1].position = sf::Vector2f(CELL_WIDTH * (i + 1), GRID_HEIGHT + CELL_HEIGHT);
 
         vLines[i * 2].color = GRID_COLOR;
         vLines[i * 2 + 1].color = GRID_COLOR;
