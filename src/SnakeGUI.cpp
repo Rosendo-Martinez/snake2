@@ -283,10 +283,10 @@ void SnakeGUI::drawInstructionsToPlay()
 {
     sf::Text instruction;
     instruction.setFont(font);
-    instruction.setCharacterSize(30);
+    instruction.setCharacterSize(20);
     instruction.setFillColor(RED);
     instruction.setString("Press  Enter  To  Play");
 
-    instruction.setPosition(sf::Vector2f(GRID_WIDTH/2 - instruction.getGlobalBounds().width/2,0));
+    instruction.setPosition(sf::Vector2f(GRID_WIDTH/2 - instruction.getGlobalBounds().width/2,10));
     m_window.draw(instruction);
 }
