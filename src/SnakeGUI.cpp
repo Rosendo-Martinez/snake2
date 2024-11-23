@@ -75,7 +75,7 @@ Action SnakeGUI::getInput()
     }
 
     // Handle resizing of screen
-    if (event.type == sf::Event::Resized && false) // temporary false
+    if (event.type == sf::Event::Resized)
     {
         sf::Vector2u size = m_window.getSize();
         sf::FloatRect newGameViewPort(0,0,1,1);
@@ -86,10 +86,10 @@ Action SnakeGUI::getInput()
             newGameViewPort.width = (float) GRID_WIDTH/size.x;
             newGameViewPort.left = (1 - newGameViewPort.width)/2;
         }
-        if (size.y > GRID_HEIGHT)
+        if (size.y > GRID_HEIGHT + CELL_HEIGHT)
         {
             // Center grid vertically, and maintain constent height
-            newGameViewPort.height = (float) GRID_HEIGHT/size.y;
+            newGameViewPort.height = (float) (GRID_HEIGHT + CELL_HEIGHT)/size.y;
             newGameViewPort.top = (1 - newGameViewPort.height)/2;
         }
 
