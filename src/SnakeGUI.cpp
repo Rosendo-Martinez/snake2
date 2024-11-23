@@ -173,7 +173,7 @@ void SnakeGUI::drawCell(Color c, int gx, int gy)
  */
 void SnakeGUI::drawStartScreen()
 {
-    sf::RectangleShape rectangle(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT));
+    sf::RectangleShape rectangle(sf::Vector2f(GRID_WIDTH, GRID_HEIGHT + CELL_HEIGHT));
     rectangle.setFillColor(sf::Color::White);
     m_window.draw(rectangle);
 }
