@@ -7,6 +7,8 @@ It was painful, but I had fun too.
 
 ## Compiling & Running
 
+https://github.com/user-attachments/assets/e5025fba-1514-414f-a966-d1400a96cca9
+
 #### Project Dependencies
 - SFML
 
