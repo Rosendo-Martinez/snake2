@@ -172,27 +172,17 @@ void SnakeGUI::drawGrid()
 }
 
 /**
- * Draws a cell of the grid a certain color.
+ * Draws a snake part.
  * 
  * Top left cell is origin at (0,0).
  */
-void SnakeGUI::drawCell(Color c, int gx, int gy)
+void SnakeGUI::drawSnakePart(int gx, int gy)
 {
     gy++; // grid offset
 
-    sf::Color sfColor;
-    if (c == Color::Red)
-    {
-        sfColor = RED;
-    }
-    else if (c == Color::Green)
-    {
-        sfColor = GREEN;
-    }
-
     sf::RectangleShape cell(sf::Vector2f(CELL_WIDTH, CELL_HEIGHT));
     cell.setPosition(sf::Vector2f(gx * CELL_WIDTH, gy * CELL_HEIGHT));
-    cell.setFillColor(sfColor);
+    cell.setFillColor(RED);
     m_window.draw(cell);
 }
 

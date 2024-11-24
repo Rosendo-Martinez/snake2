@@ -122,7 +122,7 @@ void SnakeLoop::doRender()
     // Draw snake
     for (int i = 0; i < logic.getSize(); i++)
     {
-        gui.drawCell(Color::Red, logic.getSnake()[i].gx, logic.getSnake()[i].gy);
+        gui.drawSnakePart(logic.getSnake()[i].gx, logic.getSnake()[i].gy);
     }
 
     gui.drawInstructions(isGameOver, isPaused);

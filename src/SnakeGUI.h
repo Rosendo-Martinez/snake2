@@ -5,11 +5,6 @@ enum class Action
     Close_Window, None, Up, Down, Left, Right, Enter_Game, Toggle_Pause
 };
 
-enum class Color
-{
-    Red, Green
-};
-
 class SnakeGUI
 {
     sf::RenderWindow m_window;
@@ -24,7 +19,7 @@ public:
     
     void clear();
     void drawGrid();
-    void drawCell(Color c, int gx, int gy);
+    void drawSnakePart(int gx, int gy);
     void drawApple(int gx, int gy);
     void drawScores(int currentScore, int highScore);
     void update();
