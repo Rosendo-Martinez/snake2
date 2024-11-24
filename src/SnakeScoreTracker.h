@@ -1,5 +1,8 @@
 class SnakeLogic;
 
+/**
+ * A class that SnakeLogic can use to keep track of the game scores.
+ */
 class SnakeScoreTracker
 {
     friend class SnakeLogic;
@@ -13,8 +16,6 @@ class SnakeScoreTracker
 public:
     SnakeScoreTracker();
 
-    int getScore();
-    int getHighestScore();
-    bool isNewHighScore();
-    int getScoreDiff();
+    int getScore() const;
+    int getHighestScore() const;
 };

@@ -11,7 +11,7 @@ SnakeScoreTracker::SnakeScoreTracker()
  * 
  * Running score while snake has not died, and final score after snake dies.
  */
-int SnakeScoreTracker::getScore()
+int SnakeScoreTracker::getScore() const
 {
     return score;
 }
@@ -22,18 +22,9 @@ int SnakeScoreTracker::getScore()
  * Note: does not include the score for current game, even
  * if it is a new high score.
  */
-int SnakeScoreTracker::getHighestScore()
+int SnakeScoreTracker::getHighestScore() const
 {
     return highestScore;
-}
-
-/**
- * Checks if the current game score is a 
- * new high score.
- */
-bool SnakeScoreTracker::isNewHighScore()
-{
-    return score > highestScore;
 }
 
 /**
@@ -57,13 +48,4 @@ void SnakeScoreTracker::resetScore()
     }
 
     score = 0;
-}
-
-/**
- * Returns the difference between the highest score so far
- * and the score for the current game.
- */
-int SnakeScoreTracker::getScoreDiff()
-{
-    return highestScore - score;
 }
