@@ -120,7 +120,7 @@ void SnakeLoop::doRender()
     }
 
     // Draw snake
-    for (int i = 0; i < logic.getSize(); i++)
+    for (int i = 0; i < logic.getSnakeSize(); i++)
     {
         gui.drawSnakePart(logic.getSnake()[i].gx, logic.getSnake()[i].gy);
     }

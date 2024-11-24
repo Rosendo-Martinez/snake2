@@ -94,7 +94,7 @@ const SnakePart * SnakeLogic::getSnake()
     return snake;
 }
 
-const int SnakeLogic::getSize()
+const int SnakeLogic::getSnakeSize()
 {
     return snakeSize;
 }

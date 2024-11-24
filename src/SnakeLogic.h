@@ -50,7 +50,7 @@ public:
     void restart();
 
     const SnakePart * getSnake();
-    const int getSize();
+    const int getSnakeSize();
     const Apple * getApples();
     const int getSizeApples();
 };
