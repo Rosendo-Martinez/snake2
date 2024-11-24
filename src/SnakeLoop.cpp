@@ -114,7 +114,7 @@ void SnakeLoop::doRender()
     gui.drawScores(logic.st.getScore(), logic.st.getHighestScore());
 
     // Draw apples
-    for (int i = 0; i < logic.getSizeApples(); i++)
+    for (int i = 0; i < logic.getApplesSize(); i++)
     {
         gui.drawApple(logic.getApples()[i].gx, logic.getApples()[i].gy);
     }

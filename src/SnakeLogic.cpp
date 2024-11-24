@@ -89,22 +89,37 @@ void SnakeLogic::move(Direction dir)
     generateApple();
 }
 
+/**
+ * The array of SnakeParts that represent the snake.
+ * 
+ * The head is at index 0.
+ * The tail is at index getSnakeSize() - 1.
+ */
 const SnakePart * SnakeLogic::getSnake()
 {
     return snake;
 }
 
+/**
+ * The size of the snake.
+ */
 const int SnakeLogic::getSnakeSize()
 {
     return snakeSize;
 }
 
+/**
+ * The apples that are currently spawned.
+ */
 const Apple * SnakeLogic::getApples()
 {
     return apples;
 }
 
-const int SnakeLogic::getSizeApples()
+/**
+ * The number of apples currently spawned.
+ */
+const int SnakeLogic::getApplesSize()
 {
     return applesSize;
 }

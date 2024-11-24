@@ -52,5 +52,5 @@ public:
     const SnakePart * getSnake();
     const int getSnakeSize();
     const Apple * getApples();
-    const int getSizeApples();
+    const int getApplesSize();
 };
